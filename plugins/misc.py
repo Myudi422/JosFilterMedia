@@ -157,12 +157,9 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
                 InlineKeyboardButton(
                     text=f"{imdb.get('title')} - {imdb.get('year')}",
                     url=imdb['url'],
-                )
-            ],
-            [
-                InlineKeyboardButton(
-                    text=f"Projects Channel",
-                    url="https://t.me/josprojects"
+                ),InlineKeyboardButton(
+                    text=f"Tutup",
+                    callback_data="close_data"
                 )
             ],
         ]
