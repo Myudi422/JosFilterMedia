@@ -453,27 +453,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "pages":
         await query.answer()
-    elif query.data == "start":
-        buttons = [[
-            InlineKeyboardButton('➕ Tambahkan Ke Grup ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-            InlineKeyboardButton('Anime', callback_data='menu'),
-            InlineKeyboardButton('Manga', callback_data='manga_s')
-            ],[
-            InlineKeyboardButton('Bantuan', callback_data='help'),
-            InlineKeyboardButton('Tentang', callback_data='about')
-            ],[
-            InlineKeyboardButton('❌ Tutup ❌', callback_data='close_data')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=Script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
-            disable_web_page_preview=True,
-            reply_markup=reply_markup,
-            parse_mode='html'
-        )
-        await query.answer('Membajak Itu tidak Baik!!')
-    elif query.data == "help":
+    elif query.data == "help1":
         buttons = [[
             InlineKeyboardButton('Connect', callback_data='coct'),
             InlineKeyboardButton('Filters', callback_data='auto_manual'),
