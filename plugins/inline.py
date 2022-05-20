@@ -110,7 +110,7 @@ def get_reply_markup(query):
     buttons = [
         [
             InlineKeyboardButton('🔍 Cari Lagi', switch_inline_query_current_chat=query),
-            InlineKeyboardButton('Hapus', callback_data='close_menu')
+            InlineKeyboardButton('Hapus', callback_data='close_data')
         ]
         ]
     return InlineKeyboardMarkup(buttons)
