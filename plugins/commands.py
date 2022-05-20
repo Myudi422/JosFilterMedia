@@ -49,7 +49,7 @@ async def start(client, message):
             InlineKeyboardButton('Manga', callback_data='manga_s')
             ],[
             ],[
-            InlineKeyboardButton('Bantuan', callback_data='help'),
+            InlineKeyboardButton('Bantuan', callback_data='help1'),
             InlineKeyboardButton('Tentang', callback_data='about')
             ],[
             InlineKeyboardButton('❌ Tutup ❌', callback_data='close_data')
