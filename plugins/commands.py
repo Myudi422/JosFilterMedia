@@ -42,6 +42,18 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, Script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
+        buttons = [[
+            InlineKeyboardButton('➕ Add me to your Chat ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            ],[
+            InlineKeyboardButton('Anime', callback_data='menu'),
+            InlineKeyboardButton('Manga', callback_data='manga_s')
+            ],[
+            ],[
+            InlineKeyboardButton('Bantuan', callback_data='help'),
+            InlineKeyboardButton('Tentang', callback_data='about')
+            ],[
+            InlineKeyboardButton('❌ Tutup ❌', callback_data='close_data')
+        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
