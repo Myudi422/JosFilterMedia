@@ -45,7 +45,7 @@ def a(client, message: Message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply(f"**🔎 Searching..** `{urlissed}`", reply_to_message_id=reply_id)
+    m = message.reply(f"**🔎 Mencari..** `{urlissed}`", reply_to_message_id=reply_id)
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = []
@@ -69,22 +69,22 @@ def a(client, message: Message):
             #     m.edit("Exceeded 30mins cap")
             #     return
 
-            performer = f"[Zaute Km]" 
+            performer = f"[ccgnimex]" 
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
 
         except Exception as e:
             print(e)
-            m.edit('**Found Literary Noting. Please Try Another Song or Use Correct Spelling!**')
+            m.edit('**Silakan Coba Lagu Lain atau Gunakan Ejaan yang Benar!!**')
             return
     except Exception as e:
         m.edit(
-            "**Enter Song Name with Command**❗\nFor Example: `/song Alone Marshmellow`"
+            "**Masukkan Nama Lagu dengan Perintah**❗\Misalnya: `/song Alone Marshmello`"
         )
         print(str(e))
         return
-    m.edit("`Uploading... Please Wait...`")
+    m.edit("`Uploading... Tunggu Sebentar...`")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -99,7 +99,7 @@ def a(client, message: Message):
         m.delete()
         message.delete()
     except Exception as e:
-        m.edit('**An Error Occured. Please Report This To @JOSPSupport !!**')
+        m.edit('**Kesalahan terjadi. Tolong Laporkan Ini Ke @otakuindonew !!**')
         print(e)
     try:
         os.remove(audio_file)
