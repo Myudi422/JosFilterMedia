@@ -32,7 +32,7 @@ async def left(client,message):
                                 [
                                     [
                                         InlineKeyboardButton(
-                                            text=f"translated from {translation.src} to {translation.dest}", callback_data='close_data')
+                                            text=f"Tutup", callback_data='close_data')
                                         )
                                     ],
                                 ]
