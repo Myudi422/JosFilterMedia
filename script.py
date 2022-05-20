@@ -1,11 +1,11 @@
 class Script(object):
     START_TXT = """Hello {},
 
-My name is <a href=https://t.me/{}>{}</a>!
+saya bot ᴄᴄɢɴɪᴍᴇx v2.0, untuk penggunaan lebih lanjut, silahkan klik tombol bantuan dibawah!.
 
-<b>I can provide Movies. A Telegram Auto Filter Bot. Its Easy To Use Me :)
+Jika kalian suka dengan bot ini, silahkan dukung kami dengan cara, share bot ini, ataupun support kami & juga berdonasi agar server tetap hidup & kami meningkatkan bot ini lebih baik.
 
-Just Add me to Your Group As Admin, Hit The Help Button For More Info..</b>"""
+Saya sarankan, Silahkan Daftar/Login Anilist terlebih dahulu (/auth), untuk menikmati fitur bot ini sepenuhnya."""
 
     HELP_TXT = """Hey {}
 
