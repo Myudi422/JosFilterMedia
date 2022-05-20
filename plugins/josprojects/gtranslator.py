@@ -30,11 +30,9 @@ async def left(client,message):
 			translation = translator.translate(tr_text,dest = lg_cd)
 			hehek = InlineKeyboardMarkup(
                                 [
-                                    [
-                                        InlineKeyboardButton(
-                                            text=f"Tutup", callback_data='close_data')
-                                        )
-                                    ],
+                                   [
+            							InlineKeyboardButton('Tutup', callback_data='close_data')
+            					   ]
                                 ]
                             )
 			try:
