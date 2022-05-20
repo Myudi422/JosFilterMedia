@@ -26,7 +26,7 @@ async def start(client, message):
                 InlineKeyboardButton('⭕️ Updates ⭕️', url='https://t.me/josprojects')
             ],
             [
-                InlineKeyboardButton('🛠️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
+                InlineKeyboardButton('🛠️ Help', url=f"https://t.me/{temp.U_NAME}?start=help1"),
                 InlineKeyboardButton('Close ✗', callback_data="close_data"),
             ]
             ]
@@ -88,11 +88,11 @@ async def start(client, message):
             parse_mode="markdown"
             )
         return
-    if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
+    if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help1"]:
         buttons = [[
             InlineKeyboardButton('➕ Add me to your Chat ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('⭕️ Help', callback_data='help'),
+            InlineKeyboardButton('⭕️ Help', callback_data='help1'),
             InlineKeyboardButton('About ⭕️', callback_data='about')
             ],[
             InlineKeyboardButton('🕵️ Search here Movie 🕵️', switch_inline_query_current_chat='')
