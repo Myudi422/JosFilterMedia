@@ -87,7 +87,7 @@ async def answer(bot, query):
         except Exception as e:
             logging.exception(str(e))
     else:
-        switch_pm_text = f'{emoji.CROSS_MARK} Sedang Perbaikan!'
+        switch_pm_text = f'{emoji.CROSS_MARK} Tidak Tersedia!'
 
         await query.answer(results=[],
                            is_personal = True,
@@ -99,7 +99,8 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('🔍 Cari Lagi', switch_inline_query_current_chat=query)
+            InlineKeyboardButton('🔍 Cari Lagi', switch_inline_query_current_chat=query),
+            InlineKeyboardButton('Bantuan', callback_data='help1')
         ]
         ]
     return InlineKeyboardMarkup(buttons)
