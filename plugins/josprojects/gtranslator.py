@@ -32,7 +32,7 @@ async def left(client,message):
                                 [
                                     [
                                         InlineKeyboardButton(
-                                            text=f"translated from {translation.src} to {translation.dest}", url="https://cloud.google.com/translate/docs/languages"
+                                            text=f"translated from {translation.src} to {translation.dest}", callback_data='close_data')
                                         )
                                     ],
                                 ]
