@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
-@Client.on_message(filters.command("tested") & filters.incoming & ~filters.edited)
+@Client.on_message(filters.command("help") & filters.incoming & ~filters.edited)
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
@@ -39,17 +39,20 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, Script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
-        buttons = [[
-            InlineKeyboardButton('➕ Add me to your Chat ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+        buttons = [
+            [
+            InlineKeyboardButton('Dasar', callback_data='dasar'),
+            InlineKeyboardButton('Anilist', callback_data='anilist')
             ],[
-            InlineKeyboardButton('Anime', callback_data='menu'),
-            InlineKeyboardButton('Manga', callback_data='manga_s')
             ],[
+            InlineKeyboardButton('Tingkat Lanjut', callback_data='tingkat'),
+            InlineKeyboardButton('Tambahan', callback_data='tambahan')
             ],[
-            InlineKeyboardButton('Bantuan', callback_data='help1'),
-            InlineKeyboardButton('Tentang', callback_data='about')
-            ],[
-            InlineKeyboardButton('❌ Tutup ❌', callback_data='close_data')
+            InlineKeyboardButton('Plugin Tambahan', callback_data='help1')
+        ],[
+            InlineKeyboardButton('Tutorial Channel', callback_data='channel')
+        ],[
+            InlineKeyboardButton('🔙 Back', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -69,7 +72,7 @@ async def start(client, message):
         btn = [
             [
                 InlineKeyboardButton(
-                    "🤖 Join Updates Channel", url=invite_link.invite_link
+                    "Mohon Ikuti Channel Terlebih Dahulu!", url=invite_link.invite_link
                 )
             ]
         ]
@@ -91,11 +94,6 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('⭕️ Help', callback_data='help1'),
             InlineKeyboardButton('About ⭕️', callback_data='about')
-            ],[
-            InlineKeyboardButton('🕵️ Search here Movie 🕵️', switch_inline_query_current_chat='')
-            ],[
-            InlineKeyboardButton('⭕️ Updates', url='https://t.me/josprojects'),
-            InlineKeyboardButton('Movie Club ⭕️', url='https://t.me/+y53tWFUw6Q43NzE9')
             ],[
             InlineKeyboardButton('❌ Close the Menu ❌', callback_data='close_data')
         ]]
