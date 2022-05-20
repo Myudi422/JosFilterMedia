@@ -87,7 +87,7 @@ async def answer(bot, query):
         except Exception as e:
             logging.exception(str(e))
     else:
-        switch_pm_text = f'{emoji.CROSS_MARK} Tidak Tersedia!'
+        switch_pm_text = f'{emoji.CROSS_MARK} Sedang Perbaikan!'
 
         await query.answer(results=[],
                            is_personal = True,
