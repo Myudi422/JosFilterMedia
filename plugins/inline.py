@@ -5,6 +5,16 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQue
 from database.ia_filterdb import get_search_results
 from utils import is_subscribed, get_size, temp
 from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
+from script import Script
+from pyrogram.errors import ChatAdminRequired, FloodWait
+from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
+from database.users_chats_db import db
+from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT
+from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
+from database.connections_mdb import active_connection
+import re
+import json
+import base64
 
 logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
@@ -100,7 +110,7 @@ def get_reply_markup(query):
     buttons = [
         [
             InlineKeyboardButton('🔍 Cari Lagi', switch_inline_query_current_chat=query),
-            InlineKeyboardButton('Bantuan', callback_data='help1')
+            InlineKeyboardButton('Hapus', callback_data='close_menu')
         ]
         ]
     return InlineKeyboardMarkup(buttons)
