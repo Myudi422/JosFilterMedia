@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
-@Client.on_message(filters.command("mulai") & filters.incoming & ~filters.edited)
+@Client.on_message(filters.command("tested") & filters.incoming & ~filters.edited)
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
@@ -377,7 +377,7 @@ async def delete_all_index(bot, message):
 @Client.on_callback_query(filters.regex(r'^autofilter_delete'))
 async def delete_all_index_confirm(bot, message):
     await Media.collection.drop()
-    await message.answer('Piracy Is Crime')
+    await message.answer('Jangan Nonton Bajakan Mulu!')
     await message.message.edit('Succesfully Deleted All The Indexed Files.')
 
 
